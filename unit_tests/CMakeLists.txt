@@ -13,10 +13,10 @@ add_executable(nx_kit_ut
 )
 
 IF (MSVC)
-    add_compile_definitions(NX_KIT_API=__declspec\(dllimport\))
+    add_definitions(NX_KIT_API=__declspec\(dllimport\))
     add_compile_options(/W4 /WX)
 ELSE()
-    add_compile_definitions(NX_KIT_API=__attribute__\(\(visibility\(\"default\"\)\)\))
+    add_definitions(NX_KIT_API=__attribute__\(\(visibility\(\"default\"\)\)\))
     add_compile_options(-Wall -Wextra -Werror)
 ENDIF()
 

@@ -31,10 +31,10 @@ target_include_directories(nx_kit PUBLIC src)
 
 # Set the maximum warning level.
 IF (MSVC)
-    add_definitions(NX_KIT_API=__declspec\(dllexport\))
+    add_compile_definitions(NX_KIT_API=__declspec\(dllexport\))
     add_compile_options(/W4 /WX)
 ELSE()
-    add_definitions(NX_KIT_API=__attribute__\(\(visibility\(\"default\"\)\)\))
+    add_compile_definitions(NX_KIT_API=__attribute__\(\(visibility\(\"default\"\)\)\))
     add_compile_options(-Wall -Wextra -Werror)
 ENDIF()
 

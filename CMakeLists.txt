@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.3.2)
+cmake_minimum_required(VERSION 3.14)
 
 project(nx_kit_test)
 
@@ -29,12 +29,15 @@ add_library(nx_kit ${nxKitLibraryType} ${nx_kit_files})
 
 target_include_directories(nx_kit PUBLIC src)
 
-# Set the maximum warning level.
 IF (MSVC)
+    # Setup proper definition of NX_KIT_API for MSVC
     add_compile_definitions(NX_KIT_API=__declspec\(dllexport\))
+    # Set the maximum warning level.
     add_compile_options(/W4 /WX)
 ELSE()
+    # Setup proper definition of NX_KIT_API for other compilers
     add_compile_definitions(NX_KIT_API=__attribute__\(\(visibility\(\"default\"\)\)\))
+    # Set the maximum warning level.
     add_compile_options(-Wall -Wextra -Werror)
 ENDIF()
 

@@ -14,7 +14,7 @@ add_executable(nx_kit_ut
 
 IF (MSVC)
     # Setup proper definition of NX_KIT_API for MSVC to link with DLL
-    add_compile_definitions(NX_KIT_API=__declspec\(dllimport\))
+    target_compile_definitions(nx_kit_ut PRIVATE NX_KIT_API=__declspec\(dllimport\))
 #    add_compile_options(/W4 /WX)
 #ELSE()
     # add_compile_definitions(NX_KIT_API=__attribute__\(\(visibility\(\"default\"\)\)\))

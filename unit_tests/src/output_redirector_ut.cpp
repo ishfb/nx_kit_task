@@ -7,7 +7,7 @@
 #else
     #undef __STRICT_ANSI__ //< Enable fileno() in <stdio.h> on Cygwin/MinGW.
     #include <stdio.h>
-    
+
     #include <unistd.h>
 #endif
 #include <fstream>

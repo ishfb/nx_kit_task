@@ -31,14 +31,14 @@ target_include_directories(nx_kit PUBLIC src)
 
 IF (MSVC)
     # Setup proper definition of NX_KIT_API for MSVC
-    add_compile_definitions(NX_KIT_API=__declspec\(dllexport\))
+    target_compile_definitions(nx_kit PRIVATE NX_KIT_API=__declspec\(dllexport\))
     # Set the maximum warning level.
-    add_compile_options(/W4 /WX)
+    target_compile_options(nx_kit PRIVATE /W4 /WX)
 ELSE()
     # Setup proper definition of NX_KIT_API for other compilers
-    add_compile_definitions(NX_KIT_API=__attribute__\(\(visibility\(\"default\"\)\)\))
+    target_compile_definitions(nx_kit PRIVATE NX_KIT_API=__attribute__\(\(visibility\(\"default\"\)\)\))
     # Set the maximum warning level.
-    add_compile_options(-Wall -Wextra -Werror)
+    target_compile_options(nx_kit PRIVATE -Wall -Wextra -Werror)
 ENDIF()
 
 set(nxKitWithTests "YES" CACHE STRING "Whether to build unit tests")

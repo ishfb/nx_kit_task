@@ -101,7 +101,7 @@ std::string printPrefix(const char* file)
 //-------------------------------------------------------------------------------------------------
 // Assertions
 
-void intentionallyCrash(const char* message)
+void intentionallyCrash([[maybe_unused]] const char* message)
 {
     #if defined(_WIN32)
         char messageOnStack[256] = {0};
